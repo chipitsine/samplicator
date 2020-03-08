@@ -5,7 +5,9 @@ After=network.target
 
 [Service]
 Type=forking
-ExecStart=/usr/bin/samplicate -S -c /etc/samplicator-%i.conf -p %i -d 0 -f
+PIDFile=/var/run/samplicator-%i.pid
+ExecStart=/usr/bin/samplicate -S -c /etc/samplicator-%i.conf -p %i -d 0 -f -m /var/run/samplicator-%i.pid
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
