@@ -1,0 +1,11 @@
+
+[Unit]
+Description=Samplicator
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/samplicate -S -c /etc/samplicator-%i.conf -p %i -d 0 -f
+
+[Install]
+WantedBy=multi-user.target
