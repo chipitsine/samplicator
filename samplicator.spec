@@ -28,8 +28,6 @@ make
 %install
 
 make DESTDIR=$RPM_BUILD_ROOT install
-%{__mkdir} -p $RPM_BUILD_ROOT%{_unitdir}
-%{__install} -m644 samplicator@.service $RPM_BUILD_ROOT%{_unitdir}/samplicator@.service
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -37,7 +35,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %{_bindir}/samplicate
-%{_unitdir}/samplicator@.service
 
 %changelog
 * Tue Mar 03 2020 Ilya Shipitcin <chipitsine@gmail.com> - 1.3.8
